@@ -1,5 +1,6 @@
 package com.azienda.test.controller;
 
+import com.azienda.test.model.Dipendente;
 import com.azienda.test.service.IDipendenteService;
 import com.azienda.test.service.dto.DipendenteDTO;
 import com.azienda.test.service.request.DipendenteRequest;
@@ -17,19 +18,32 @@ import java.util.Optional;
 public class DipendenteContoller {
 
     @Autowired
-    private IDipendenteService aziendaService;
+    private IDipendenteService dipendenteService;
 
     @GetMapping("/dipendenti")
     public ResponseEntity<?> ricercaTuttiIDipendenti(){
         try{
-            return buildResponse(aziendaService.findAll());
+            return buildResponse(dipendenteService.findAll());
         }catch (Exception e){
             //LOG!
             return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
         }
     }
     
-    
+    @RequestMapping(value = "/saveDipendente", method = RequestMethod.POST)
+    public void saveDipendente(@RequestBody DipendenteRequest request) {
+    	DipendenteDTO dto = DipendenteDTO.build(request);
+    	Dipendente dipendente = new Dipendente();
+    	dipendente.setNome(dto.getNome());
+    	dipendente.setCognome(dto.getCognome());
+    	dipendente.setEmail(dto.getEmail());
+    	try {
+    		dipendenteService.save(dipendente);
+    	}catch (Exception e) {
+    		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
+    	}
+    	
+    }
     
 /*
     @PostMapping("/ricerca/dipendente")

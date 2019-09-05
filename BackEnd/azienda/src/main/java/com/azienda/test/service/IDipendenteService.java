@@ -8,5 +8,8 @@ import com.azienda.test.model.Dipendente;
 
 public interface IDipendenteService {
 
-   public Optional<List<Dipendente>> findAll() ;
+   public Optional<List<Dipendente>> findAll();
+   
+
+	public void save(Dipendente dipendente);
 }

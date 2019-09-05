@@ -24,7 +24,10 @@ public class DipendenteService implements IDipendenteService {
 		return Optional.ofNullable(dipRepository.findAll());
 	}
 
-	
+	@Transactional
+	public void save(Dipendente dipendente) {
+		dipRepository.save(dipendente);
+	}
 
 
 

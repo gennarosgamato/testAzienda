@@ -23,4 +23,12 @@ public class Dipendente implements Serializable {
 
     @OneToOne
     private Azienda azienda;
+
+	/**
+	 * 
+	 */
+	public Dipendente() {
+		super();
+	}
+    
 }
