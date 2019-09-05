@@ -11,7 +11,13 @@ import java.io.Serializable;
 @Data
 public class Dipendente implements Serializable {
 
-    @Id
+
+
+	public Dipendente() {
+		super();
+	}
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private @NonNull Long id;
     private @NonNull String nome;

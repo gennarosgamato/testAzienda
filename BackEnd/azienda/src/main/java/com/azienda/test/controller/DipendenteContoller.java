@@ -26,6 +26,7 @@ public class DipendenteContoller {
             return buildResponse(dipendenteService.findAll());
         }catch (Exception e){
             //LOG!
+        	e.printStackTrace();
             return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
         }
     }
