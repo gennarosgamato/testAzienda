@@ -18,27 +18,13 @@ public class AziendaService implements IAziendaService {
     @Autowired
     private IAziendaRepository aziendaRepository;
 
-    @Autowired
-    private IPersonaleRepository personaleRepository;
+	@Override
+	public Dipendente findDipendente(Dipendente d) {
+		
+		return null;
+	}
 
-    @Override
-    public Optional<List<Dipendente>> ricercaDipendenti() {
-        Iterable<Dipendente> all = personaleRepository.findAll();
-        List<Dipendente> tmp = new ArrayList<>();
-        all.iterator().forEachRemaining(tmp::add);
-        Optional<List<Dipendente>> optional = Optional.of(tmp);
-        return optional;
-    }
 
-    @Override
-    public Optional<List<Dipendente>> ricercaDipendenti(DipendenteDTO dto) {
-        Optional<List<Dipendente>> all = personaleRepository.cercaDipendenteByEmail(dto.getNome());
-        return all;
-    }
+    
 
-    @Override
-    public Optional<Dipendente> ricercaDipendente(Long idDipendente) {
-        Optional<Dipendente> byId = personaleRepository.findById(idDipendente);
-        return byId;
-    }
 }
