@@ -1,5 +1,10 @@
 # testAzienda
 
-#Sto testando 
 
-#sto testando 2
+Esercizio
+
+#Primo esercizio di conflitti tra file
+Ciao michele, ti scrivo per augurarti una buona fortuna.
+
+
+#Sto cercando di fare merge
