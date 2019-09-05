@@ -1,6 +1,6 @@
 package com.azienda.test.controller;
 
-import com.azienda.test.service.IAziendaService;
+import com.azienda.test.service.IDipendenteService;
 import com.azienda.test.service.dto.DipendenteDTO;
 import com.azienda.test.service.request.DipendenteRequest;
 import com.azienda.test.service.response.ErrorResponse;
@@ -14,21 +14,24 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController("/azienda")
-public class AziendaContoller {
+public class DipendenteContoller {
 
     @Autowired
-    private IAziendaService aziendaService;
+    private IDipendenteService aziendaService;
 
     @GetMapping("/dipendenti")
-    public ResponseEntity<?> ricercaDipendente(){
+    public ResponseEntity<?> ricercaTuttiIDipendenti(){
         try{
-            return buildResponse(aziendaService.ricercaDipendenti());
+            return buildResponse(aziendaService.findAll());
         }catch (Exception e){
             //LOG!
             return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
         }
     }
-
+    
+    
+    
+/*
     @PostMapping("/ricerca/dipendente")
     public ResponseEntity<?> ricercaDipendente(@RequestBody DipendenteRequest request){
         DipendenteDTO dto = DipendenteDTO.build(request);
@@ -50,7 +53,7 @@ public class AziendaContoller {
             return buildErrorResponse("ERR-01", "Errore durante la visualizzazione del dettaglio dipendente: " + e.getMessage());
         }
     }
-
+*/
     private ErrorResponse buildErrorResponse(String codice, String messaggio) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);
         errorResponse.setCode(codice);
@@ -64,4 +67,5 @@ public class AziendaContoller {
         }
         return new ResponseEntity(new ArrayList(), HttpStatus.NO_CONTENT);
     }
+   
 }
