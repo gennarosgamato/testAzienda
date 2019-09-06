@@ -1,4 +1,4 @@
-package com.azienda.test.model;
+package com.azienda.model;
 
 import java.io.Serializable;
 

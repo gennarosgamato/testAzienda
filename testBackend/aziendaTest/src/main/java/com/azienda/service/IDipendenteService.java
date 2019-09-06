@@ -1,9 +1,9 @@
-package com.azienda.test.service;
+package com.azienda.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.azienda.test.model.Dipendente;
+import com.azienda.model.Dipendente;
 
 
 public interface IDipendenteService {
