@@ -55,6 +55,29 @@ public class DipendenteContoller {
     	
     }
     
+/*
+    @PostMapping("/ricerca/dipendente")
+    public ResponseEntity<?> ricercaDipendente(@RequestBody DipendenteRequest request){
+        DipendenteDTO dto = DipendenteDTO.build(request);
+        try{
+            return buildResponse(aziendaService.ricercaDipendenti(dto));
+        }catch (Exception e){
+            //LOG!
+            return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/dipendente/{id}")
+    public ResponseEntity<?> mostraDipendente(@PathVariable String id){
+        Long idDipendente = Long.parseLong(id);
+        try{
+            return buildResponse(aziendaService.ricercaDipendente(idDipendente));
+        }catch (Exception e){
+            //LOG!
+            return buildErrorResponse("ERR-01", "Errore durante la visualizzazione del dettaglio dipendente: " + e.getMessage());
+        }
+    }
+*/
     private ErrorResponse buildErrorResponse(String codice, String messaggio) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);
         errorResponse.setCode(codice);

@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.almaviva</groupId>
-	<artifactId>azienda-ms</artifactId>
+	<artifactId>aziendaTest</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>azienda</name>
@@ -19,20 +19,12 @@
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
- 
+
 	<dependencies>
-		<!-- https://mvnrepository.com/artifact/javax.transaction/javax.transaction-api -->
 		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>javax.transaction-api</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.1.17.Final</version>
-		</dependency>
-
 		<!--<dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
 			</dependency> -->
 		<dependency>
@@ -49,8 +41,15 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		<!-- Jersey -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.8</version>
+		</dependency>
+		
 		<!-- Swagger -->
-
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>

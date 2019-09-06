@@ -40,4 +40,5 @@ public class ErrorResponse extends ResponseEntity {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+    
 }

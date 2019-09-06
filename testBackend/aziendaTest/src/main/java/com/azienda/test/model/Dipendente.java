@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 
-
+import org.springframework.lang.NonNull;
 
 @Entity
 public class Dipendente implements Serializable {
@@ -23,13 +23,13 @@ public class Dipendente implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
-    private  String nome;
-    private  String cognome;
+    private @NonNull Long id;
+    private @NonNull String nome;
+    private @NonNull String cognome;
 
     @Email
     @Column(unique = true)
-    private  String email;
+    private @NonNull String email;
 
     @OneToOne
     private Azienda azienda;

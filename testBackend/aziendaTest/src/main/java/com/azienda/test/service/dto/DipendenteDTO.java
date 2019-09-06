@@ -2,7 +2,6 @@ package com.azienda.test.service.dto;
 
 import com.azienda.test.service.request.DipendenteRequest;
 
-
 public class DipendenteDTO {
 
     private String nome;
@@ -58,4 +57,5 @@ public class DipendenteDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+    
 }
