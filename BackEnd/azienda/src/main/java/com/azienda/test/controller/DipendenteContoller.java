@@ -1,10 +1,11 @@
 package com.azienda.test.controller;
 
+import com.azienda.test.AziendaApplication;
 import com.azienda.test.service.IDipendenteService;
-import com.azienda.test.service.dto.DipendenteDTO;
-import com.azienda.test.service.request.DipendenteRequest;
 import com.azienda.test.service.response.ErrorResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,22 +13,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 
 @RestController("/azienda")
 public class DipendenteContoller {
 
+	private static final Logger logger = LogManager.getLogger(AziendaApplication.class);
+	
     @Autowired
     private IDipendenteService aziendaService;
 
     @GetMapping("/dipendenti")
     public ResponseEntity<?> ricercaTuttiIDipendenti(){
-        try{
+      
+    	try{
+            logger.info("------------> successfully executed");
             return buildResponse(aziendaService.findAll());
         }catch (Exception e){
             //LOG!
-        	e.printStackTrace();
+        	logger.error("-----------> Oops! We have an Error. OK");
             return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
         }
+   
     }
     
     
