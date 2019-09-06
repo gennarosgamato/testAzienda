@@ -16,6 +16,8 @@ import org.apache.logging.log4j.LogManager;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
+
 @RestController("/azienda")
 public class DipendenteContoller {
 
@@ -54,7 +56,7 @@ public class DipendenteContoller {
     	}
     	
     }
-    
+
     private ErrorResponse buildErrorResponse(String codice, String messaggio) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);
         errorResponse.setCode(codice);
