@@ -1,15 +1,16 @@
-package com.azienda.test.controller;
-
-import com.azienda.test.model.Dipendente;
-import com.azienda.test.service.IDipendenteService;
-import com.azienda.test.service.dto.DipendenteDTO;
-import com.azienda.test.service.request.DipendenteRequest;
-import com.azienda.test.service.response.ErrorResponse;
+package com.azienda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.azienda.model.Dipendente;
+import com.azienda.service.IDipendenteService;
+import com.azienda.service.dto.DipendenteDTO;
+import com.azienda.service.request.DipendenteRequest;
+import com.azienda.service.response.ErrorResponse;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -44,7 +45,7 @@ public class DipendenteContoller {
     
     @RequestMapping(value = "/saveDipendente", method = RequestMethod.POST)
     public void saveDipendente(@RequestBody DipendenteRequest request) {
-    	DipendenteDTO dto = DipendenteDTO.build(request);
+    	DipendenteDTO dto = request.getDto();
     	Dipendente dipendente = new Dipendente();
     	dipendente.setNome(dto.getNome());
     	dipendente.setCognome(dto.getCognome());

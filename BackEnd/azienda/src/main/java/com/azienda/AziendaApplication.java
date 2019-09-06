@@ -1,4 +1,4 @@
-package com.azienda.test;
+package com.azienda;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,13 +14,4 @@ public class AziendaApplication {
     public static void main(String[] args) {
         SpringApplication.run(AziendaApplication.class, args);
     }
-    
-    public void run (ApplicationArguments applicationArguments) throws Exception {
-        logger.debug("Debugging log");
-        logger.info("Info log");
-        logger.warn("Hey, This is a warning!");
-        logger.error("Oops! We have an Error. OK");
-        logger.fatal("Damn! Fatal error. Please fix me.");
-    }
-
 }
