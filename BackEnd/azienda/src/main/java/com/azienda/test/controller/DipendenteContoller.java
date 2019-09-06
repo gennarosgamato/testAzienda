@@ -1,70 +1,62 @@
 package com.azienda.test.controller;
 
-import com.azienda.test.AziendaApplication;
+import com.azienda.test.model.Dipendente;
 import com.azienda.test.service.IDipendenteService;
+import com.azienda.test.service.dto.DipendenteDTO;
+import com.azienda.test.service.request.DipendenteRequest;
 import com.azienda.test.service.response.ErrorResponse;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
 import java.util.Optional;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 
 
 @RestController("/azienda")
 public class DipendenteContoller {
 
-	private static final Logger logger = LogManager.getLogger(AziendaApplication.class);
-	
     @Autowired
-    private IDipendenteService aziendaService;
+    private IDipendenteService dipendenteService;
 
+    
+    static final Logger LOGGER = LogManager.getLogger(DipendenteContoller.class.getName());
+    
+    
     @GetMapping("/dipendenti")
     public ResponseEntity<?> ricercaTuttiIDipendenti(){
-      
-    	try{
-            logger.info("------------> successfully executed");
-            return buildResponse(aziendaService.findAll());
-        }catch (Exception e){
-            //LOG!
-        	logger.error("-----------> Oops! We have an Error. OK");
-            return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
-        }
-   
-    }
-    
-    
-    
-/*
-    @PostMapping("/ricerca/dipendente")
-    public ResponseEntity<?> ricercaDipendente(@RequestBody DipendenteRequest request){
-        DipendenteDTO dto = DipendenteDTO.build(request);
+    	LOGGER.trace("STO LOGGANDO");
+    	LOGGER.info("LOG DI INFO IN GET DIPENDENTI");
+    	LOGGER.error("ERROR LOGGER TEST");
         try{
-            return buildResponse(aziendaService.ricercaDipendenti(dto));
+            return buildResponse(dipendenteService.findAll());
         }catch (Exception e){
             //LOG!
+        	e.printStackTrace();
             return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
         }
     }
-
-    @GetMapping("/dipendente/{id}")
-    public ResponseEntity<?> mostraDipendente(@PathVariable String id){
-        Long idDipendente = Long.parseLong(id);
-        try{
-            return buildResponse(aziendaService.ricercaDipendente(idDipendente));
-        }catch (Exception e){
-            //LOG!
-            return buildErrorResponse("ERR-01", "Errore durante la visualizzazione del dettaglio dipendente: " + e.getMessage());
-        }
+    
+    @RequestMapping(value = "/saveDipendente", method = RequestMethod.POST)
+    public void saveDipendente(@RequestBody DipendenteRequest request) {
+    	DipendenteDTO dto = DipendenteDTO.build(request);
+    	Dipendente dipendente = new Dipendente();
+    	dipendente.setNome(dto.getNome());
+    	dipendente.setCognome(dto.getCognome());
+    	dipendente.setEmail(dto.getEmail());
+    	try {
+    		dipendenteService.save(dipendente);
+    	}catch (Exception e) {
+    		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
+    	}
+    	
     }
-*/
+ 
     private ErrorResponse buildErrorResponse(String codice, String messaggio) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);
         errorResponse.setCode(codice);

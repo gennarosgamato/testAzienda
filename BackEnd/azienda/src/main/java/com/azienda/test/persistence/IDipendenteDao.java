@@ -1,15 +1,13 @@
-package com.azienda.test.service;
+package com.azienda.test.persistence;
 
 import java.util.List;
 import java.util.Optional;
 
 import com.azienda.test.model.Dipendente;
 
-
-public interface IDipendenteService {
-
-   public Optional<List<Dipendente>> findAll();
-   
-
+public interface IDipendenteDao{
+	
 	public void save(Dipendente dipendente);
+	
+	public Optional<List<Dipendente>> findAll();
 }

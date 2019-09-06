@@ -2,7 +2,7 @@ package com.azienda.test.service;
 
 
 import com.azienda.test.model.Dipendente;
-import com.azienda.test.persistence.IDipendenteRepository;
+import com.azienda.test.persistence.IDipendenteDao;
 import com.azienda.test.service.dto.DipendenteDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +17,17 @@ import java.util.Optional;
 public class DipendenteService implements IDipendenteService {
 
 	@Autowired
-	private IDipendenteRepository dipRepository;
+	private IDipendenteDao dipRepository;
 	
 	@Transactional
 	public Optional<List<Dipendente>> findAll() {
-		return Optional.ofNullable(dipRepository.findAll());
+		return dipRepository.findAll();
 	}
 
-	
+	@Transactional
+	public void save(Dipendente dipendente) {
+		dipRepository.save(dipendente);
+	}
 
 
 
