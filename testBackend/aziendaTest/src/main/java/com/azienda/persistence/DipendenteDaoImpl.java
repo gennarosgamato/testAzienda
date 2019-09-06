@@ -1,4 +1,4 @@
-package com.azienda.test.persistence;
+package com.azienda.persistence;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.azienda.test.model.Dipendente;
+import com.azienda.model.Dipendente;
 
 @Repository
 public class DipendenteDaoImpl implements IDipendenteDao {
