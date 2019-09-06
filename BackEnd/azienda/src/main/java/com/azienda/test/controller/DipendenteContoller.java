@@ -42,7 +42,8 @@ public class DipendenteContoller {
         }
     }
     
-    @RequestMapping(value = "/saveDipendente", method = RequestMethod.POST)
+    
+    @PostMapping(value = "/saveDipendente")
     public void saveDipendente(@RequestBody DipendenteRequest request) {
     	DipendenteDTO dto = DipendenteDTO.build(request);
     	Dipendente dipendente = new Dipendente();
@@ -56,6 +57,15 @@ public class DipendenteContoller {
     	}
     	
     }
+    
+    @PostMapping(value = "/addDip")
+    public void addDip(){
+    	Dipendente d= new Dipendente();
+    	d.setNome("Michele");
+    	d.setCognome("Belfiore");
+    	d.setAzienda(null);
+    	d.setEmail("michele@email.it");
+   }
 
     private ErrorResponse buildErrorResponse(String codice, String messaggio) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);
