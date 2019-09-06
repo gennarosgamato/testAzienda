@@ -6,11 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.azienda.test.controller.DipendenteContoller;
+import com.azienda.controller.DipendenteContoller;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DipendenteContoller.class)
-@ContextConfiguration
 public class AziendaApplicationTests {
 
 	

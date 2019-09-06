@@ -1,13 +1,12 @@
-package com.azienda.test.service;
+package com.azienda.service;
 
-
-import com.azienda.test.model.Dipendente;
-import com.azienda.test.persistence.IDipendenteDao;
-import com.azienda.test.service.dto.DipendenteDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.azienda.model.Dipendente;
+import com.azienda.persistence.IDipendenteDao;
+import com.azienda.service.dto.DipendenteDTO;
 
 import java.util.ArrayList;
 import java.util.List;

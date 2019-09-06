@@ -1,4 +1,4 @@
-package com.azienda.test.service.response;
+package com.azienda.service.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

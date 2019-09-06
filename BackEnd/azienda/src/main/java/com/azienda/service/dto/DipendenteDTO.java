@@ -1,7 +1,4 @@
-package com.azienda.test.service.dto;
-
-import com.azienda.test.service.request.DipendenteRequest;
-
+package com.azienda.service.dto;
 
 public class DipendenteDTO {
 
@@ -9,11 +6,11 @@ public class DipendenteDTO {
     private String cognome;
     private String email;
 
-    public static DipendenteDTO build(DipendenteRequest request){
+    public static DipendenteDTO build(String nome, String cognome, String email){
         DipendenteDTO dipendenteDTO = new DipendenteDTO();
-        dipendenteDTO.setNome(request.getNome());
-        dipendenteDTO.setCognome(request.getCognome());
-        dipendenteDTO.setEmail(request.getEmail());
+        dipendenteDTO.setNome(nome);
+        dipendenteDTO.setCognome(cognome);
+        dipendenteDTO.setEmail(email);
         return dipendenteDTO;
     }
 
