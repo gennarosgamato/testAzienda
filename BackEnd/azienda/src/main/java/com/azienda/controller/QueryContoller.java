@@ -26,13 +26,13 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
-@RestController("/azienda")
-public class DipendenteContoller {
+@RestController
+public class QueryContoller {
 
     @Autowired
     private IDipendenteService dipendenteService;
     
-    static final Logger LOGGER = LogManager.getLogger(DipendenteContoller.class.getName());
+    static final Logger LOGGER = LogManager.getLogger(QueryContoller.class.getName());
     
     @GetMapping("/dipendenti")
     public ResponseEntity<?> ricercaTuttiIDipendenti(){
@@ -47,39 +47,7 @@ public class DipendenteContoller {
         	e.printStackTrace();
             return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
         }
-    }
-        
-    @PostMapping(value = "/saveDipendente")
-    public void saveDipendente(@RequestBody DipendenteRequest request) {
-    	DipendenteDTO dto = request.getDto();
-    	Dipendente dipendente = new Dipendente();
-    	dipendente.setNome(dto.getNome());
-    	dipendente.setCognome(dto.getCognome());
-    	dipendente.setEmail(dto.getEmail());
-    	
-    	try {
-    		dipendenteService.save(dipendente);
-    	}
-    	catch (Exception e) {
-    		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
-    	}
-    	
-    }
-    
-    /* private ApplicationEventPublisher eventPublisher;
-    @GetMapping(value = "/findAllCriteria/{page}/{size}")
-    public Optional<List<Dipendente>> findPaginated(@PathVariable("page") int page, 
-      @PathVariable("size") int size, UriComponentsBuilder uriBuilder,
-      HttpServletResponse response) {
-        Page<Dipendente> resultPage = service.findPaginated(page, size);
-        if (page > resultPage.getTotalPages()) {
-            throw new MyResourceNotFoundException();
-        }
-        eventPublisher.publishEvent(new ApplicationEvent() {
-		});
-     
-        return resultPage.getContent();
-    }*/
+    }    
     
     @GetMapping("/findByPage/{page}")
     public ResponseEntity<?> findCriteria(@PathVariable("page") int pageNumber){

@@ -1,8 +1,4 @@
-package com.azienda.persistence;
-
-import java.awt.print.PageFormat;
-import java.awt.print.Pageable;
-import java.awt.print.Printable;
+package com.azienda.query;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,24 +7,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 
 import com.azienda.model.Dipendente;
 
-import springfox.documentation.spring.web.json.Json;
-
 @Repository
-public class DipendenteDaoImpl implements IDipendenteDao {
+public class QueryImpl implements IQuery {
 
 	@Autowired
 	private EntityManager entityManager;
-	
-	@Override
-	public void save(Dipendente dipendente) {
-		entityManager.persist(dipendente);
-		entityManager.flush();
-	}
 
 	@Override
 	public Optional<List<Dipendente>> findAll() {

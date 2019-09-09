@@ -1,0 +1,22 @@
+package com.azienda.command;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.azienda.model.Dipendente;
+
+@Repository
+public class CommandImpl implements ICommand {
+
+	@Autowired
+	private EntityManager entityManager;
+	
+	@Override
+	public void save(Dipendente dipendente) {
+		entityManager.persist(dipendente);
+		entityManager.flush();
+	}
+
+}

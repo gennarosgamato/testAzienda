@@ -1,4 +1,4 @@
-package com.azienda.persistence;
+package com.azienda.query;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,7 @@ import java.util.Optional;
 
 import com.azienda.model.Dipendente;
 
-public interface IDipendenteDao {
-	
-	public void save(Dipendente dipendente);
+public interface IQuery {
 	
 	public Optional<List<Dipendente>> findAll();
 
