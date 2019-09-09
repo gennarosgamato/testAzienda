@@ -6,4 +6,7 @@ public interface ICommand {
 	
 	public void save(Dipendente dipendente);
 	
+	public void updateDipendente(Dipendente dipendente);
+	
+	public void removeDipendente(Dipendente dipendente);
 }

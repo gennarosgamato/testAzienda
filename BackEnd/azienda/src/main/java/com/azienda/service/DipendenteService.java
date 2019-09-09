@@ -2,6 +2,7 @@ package com.azienda.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Service;
 
 import com.azienda.command.ICommand;
@@ -25,17 +26,18 @@ public class DipendenteService implements IDipendenteService {
 	@Autowired
 	private IPagination iPagination;
 	
-	
+//Query
 	@Transactional
 	public Optional<List<Dipendente>> findAll() {
 		return queryRepository.findAll();
 	}
-
 	@Transactional
-	public void save(Dipendente dipendente) {
-		commandRepository.save(dipendente);
+	public Optional<Dipendente> findById(int id) {
+		return queryRepository.findById(id);
 	}
+
 	
+//Pagination
 	@Transactional
 	public Optional<List<Dipendente>> findWPagination(String nome,int pageNumber){
 		return iPagination.findWPagination(nome,pageNumber);
@@ -44,10 +46,24 @@ public class DipendenteService implements IDipendenteService {
 	public Optional<List<Dipendente>> findWPagination(int pageNumber, String cognome){
 		return iPagination.findWPagination(pageNumber,cognome);
 	}
-	
 	@Transactional
 	public Optional<List<Dipendente>> findWPagination(int pageNumber){
 		return iPagination.findWPagination(pageNumber);
+	}
+
+	
+//Command
+	@Transactional
+	public void save(Dipendente dipendente) {
+		commandRepository.save(dipendente);
+	}
+	@Transactional
+	public void updateDipendente(Dipendente dipendente) {
+		commandRepository.updateDipendente(dipendente);
+	}
+	@Transactional
+	public void removeDipendente(Dipendente dipendente) {
+		commandRepository.removeDipendente(dipendente);
 	}
 
 	

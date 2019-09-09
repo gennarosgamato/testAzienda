@@ -12,11 +12,21 @@ public class CommandImpl implements ICommand {
 
 	@Autowired
 	private EntityManager entityManager;
-	
+
 	@Override
 	public void save(Dipendente dipendente) {
 		entityManager.persist(dipendente);
 		entityManager.flush();
 	}
 
+	@Override
+	public void updateDipendente(Dipendente dipendente) {
+		entityManager.merge(dipendente);
+		entityManager.flush();
+	}
+
+	@Override
+	public void removeDipendente(Dipendente dipendente) {
+		entityManager.remove(entityManager.contains(dipendente) ? dipendente : entityManager.merge(dipendente));
+	}
 }

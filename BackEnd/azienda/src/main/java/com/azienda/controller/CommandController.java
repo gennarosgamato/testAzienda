@@ -37,8 +37,42 @@ public class CommandController {
     	catch (Exception e) {
     		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
     	}
-    	
     }
+	
+	@RequestMapping(value = "/update", method = RequestMethod.PUT)
+	public void updateDipendente(@RequestBody DipendenteRequest request) {
+		DipendenteDTO dto = request.getDto();
+    	Dipendente dipendente = new Dipendente();
+    	dipendente.setId(dto.getId());
+    	dipendente.setNome(dto.getNome());
+    	dipendente.setCognome(dto.getCognome());
+    	dipendente.setEmail(dto.getEmail());
+    	
+    	try {
+    		dipendenteService.updateDipendente(dipendente);
+    	}
+    	catch (Exception e) {
+    		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
+    	}
+	}
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.DELETE)
+	public void removeDipendente(@RequestBody DipendenteRequest request) {
+		DipendenteDTO dto = request.getDto();
+    	Dipendente dipendente = new Dipendente();
+    	dipendente.setId(dto.getId());
+    	dipendente.setNome(dto.getNome());
+    	dipendente.setCognome(dto.getCognome());
+    	dipendente.setEmail(dto.getEmail());
+    	
+    	try {
+    		dipendenteService.removeDipendente(dipendente);
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
+    	}
+	}
 	
 	
 	

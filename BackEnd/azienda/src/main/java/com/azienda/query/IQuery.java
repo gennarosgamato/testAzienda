@@ -10,4 +10,5 @@ public interface IQuery {
 	
 	public Optional<List<Dipendente>> findAll();
 
+	public Optional<Dipendente> findById(int id);
 }

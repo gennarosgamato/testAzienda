@@ -2,12 +2,14 @@ package com.azienda.service.dto;
 
 public class DipendenteDTO {
 
+	private int id;
     private String nome;
     private String cognome;
     private String email;
 
-    public static DipendenteDTO build(String nome, String cognome, String email){
+    public static DipendenteDTO build(int id,String nome, String cognome, String email){
         DipendenteDTO dipendenteDTO = new DipendenteDTO();
+        dipendenteDTO.setId(id);
         dipendenteDTO.setNome(nome);
         dipendenteDTO.setCognome(cognome);
         dipendenteDTO.setEmail(email);
@@ -55,4 +57,20 @@ public class DipendenteDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	
 }

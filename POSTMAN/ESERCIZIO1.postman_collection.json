@@ -55,40 +55,6 @@
 			"response": []
 		},
 		{
-			"name": "GET_PAGINATION",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:8080/findCriteria/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"findCriteria",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "GET_PAGINATION_NOME",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -151,6 +117,55 @@
 					"path": [
 						"findCriteria",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REMOVE_DIPENDENTE",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE_DIPENDENTE",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 45,\r\n        \"nome\": \"Gennaro\",\r\n        \"cognome\": \"sgama\",\r\n        \"email\": \"ciccicocco@ee.it\"\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update"
 					]
 				}
 			},

@@ -24,5 +24,13 @@ public class QueryImpl implements IQuery {
 		return Optional.ofNullable(listaPersone);
 
 	}
+	
+	@Override	
+	public Optional<Dipendente> findById(int id) {
+		Query query= entityManager.createQuery("from Dipendente d where d.id= :id");
+		query.setParameter("id", id);
+		Optional<Dipendente> dipendente=(Optional<Dipendente>) query.getSingleResult();
+		return dipendente;	
+	}
 
 }

@@ -6,14 +6,22 @@ import java.util.Optional;
 import com.azienda.model.Dipendente;
 
 public interface IDipendenteService {
-
+//Query
 	public Optional<List<Dipendente>> findAll();
-
-	public void save(Dipendente dipendente);
 	
+	public Optional<Dipendente> findById(int id);
+	
+//Pagination	
 	public Optional<List<Dipendente>> findWPagination(String nome, int pageNumber);
 	
 	public Optional<List<Dipendente>> findWPagination(int pageNumber, String cognome);
 
 	public Optional<List<Dipendente>> findWPagination(int pageNumber);
+	
+//Command 
+	public void save(Dipendente dipendente);
+	
+	public void updateDipendente(Dipendente dipendente);
+	
+	public void removeDipendente(Dipendente dipendente);
 }
