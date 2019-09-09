@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "3b188528-9741-479b-b5f4-d93a359d0691",
+		"name": "ESERCIZIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_DIPENDENTE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/allDipendenti",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"allDipendenti"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_DIPENDENTE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nome\":\"Licio\",\n\"cognome\":\"bello\",\n\"email\":\"genny@hotmail.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/saveDipendente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"saveDipendente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_PAGINATION",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/findCriteria/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findCriteria",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_PAGINATION_NOME",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Gennaro\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/findCriteria/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findCriteria",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_PAGINATION_COGNOME",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cognome\":\"Sgamato\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/findCriteria/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findCriteria",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
