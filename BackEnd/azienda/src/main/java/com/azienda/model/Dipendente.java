@@ -28,7 +28,7 @@ public class Dipendente implements Serializable {
     private  String cognome;
 
     @Email
-    @Column(unique = true)
+    @Column(unique = false)
     private  String email;
 
     @OneToOne

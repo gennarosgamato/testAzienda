@@ -10,5 +10,4 @@ public interface IQuery {
 	
 	public Optional<List<Dipendente>> findAll();
 
-	public Optional<List<Dipendente>> findAllByPage(int pageNumber);
 }

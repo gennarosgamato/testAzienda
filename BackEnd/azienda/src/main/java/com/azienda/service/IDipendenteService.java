@@ -11,5 +11,9 @@ public interface IDipendenteService {
 
 	public void save(Dipendente dipendente);
 	
-	public Optional<List<Dipendente>> findAllByPage(int pageNumber);
+	public Optional<List<Dipendente>> findWPagination(String nome, int pageNumber);
+	
+	public Optional<List<Dipendente>> findWPagination(int pageNumber, String cognome);
+
+	public Optional<List<Dipendente>> findWPagination(int pageNumber);
 }

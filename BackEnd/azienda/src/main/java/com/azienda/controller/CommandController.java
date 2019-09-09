@@ -6,8 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.azienda.model.Dipendente;
@@ -22,7 +23,7 @@ public class CommandController {
 	@Autowired
     private IDipendenteService dipendenteService;
 	
-	@PostMapping(value = "/saveDipendente")
+	@RequestMapping(value = "/saveDipendente", method = RequestMethod.POST)
     public void saveDipendente(@RequestBody DipendenteRequest request) {
     	DipendenteDTO dto = request.getDto();
     	Dipendente dipendente = new Dipendente();
@@ -38,6 +39,8 @@ public class CommandController {
     	}
     	
     }
+	
+	
 	
 	  private ErrorResponse buildErrorResponse(String codice, String messaggio) {
 	        ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);

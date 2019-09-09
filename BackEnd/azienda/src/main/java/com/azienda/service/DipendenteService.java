@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.azienda.command.ICommand;
 import com.azienda.model.Dipendente;
+import com.azienda.query.IPagination;
 import com.azienda.query.IQuery;
 
 import java.util.List;
@@ -21,6 +22,9 @@ public class DipendenteService implements IDipendenteService {
 	@Autowired
 	private ICommand commandRepository;
 	
+	@Autowired
+	private IPagination iPagination;
+	
 	
 	@Transactional
 	public Optional<List<Dipendente>> findAll() {
@@ -33,8 +37,17 @@ public class DipendenteService implements IDipendenteService {
 	}
 	
 	@Transactional
-	public Optional<List<Dipendente>> findAllByPage(int pageNumber){
-		return queryRepository.findAllByPage(pageNumber);
+	public Optional<List<Dipendente>> findWPagination(String nome,int pageNumber){
+		return iPagination.findWPagination(nome,pageNumber);
+	}
+	@Transactional
+	public Optional<List<Dipendente>> findWPagination(int pageNumber, String cognome){
+		return iPagination.findWPagination(pageNumber,cognome);
+	}
+	
+	@Transactional
+	public Optional<List<Dipendente>> findWPagination(int pageNumber){
+		return iPagination.findWPagination(pageNumber);
 	}
 
 	
