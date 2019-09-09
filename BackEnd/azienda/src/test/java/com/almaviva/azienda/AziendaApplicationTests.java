@@ -40,12 +40,12 @@ public class AziendaApplicationTests {
 	
 	@Test
 	public void  testDip() throws Exception {
-		mockMvc.perform(get("/dipendenti")).andExpect(status().isNoContent());
+		mockMvc.perform(get("/dipendenti")).andExpect(status().isOk());
 	}
 	
 	@Test
 	public void testEmployee() throws Exception {
-		mockMvc.perform(post("/addDip")).andExpect(status().isOk());
+		mockMvc.perform(post("/saveDipendente")).andExpect(status().isOk());
 
 	}
 

@@ -15,7 +15,7 @@ import javax.validation.constraints.Email;
 @Entity
 public class Dipendente implements Serializable {
 
-
+	private static final long serialVersionUID = 1L;
 
 	public Dipendente() {
 		super();
