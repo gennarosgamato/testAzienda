@@ -23,7 +23,7 @@ public class Dipendente implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    private  int id;
     private  String nome;
     private  String cognome;
 
@@ -37,14 +37,14 @@ public class Dipendente implements Serializable {
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

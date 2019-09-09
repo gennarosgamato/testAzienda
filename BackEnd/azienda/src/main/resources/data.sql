@@ -1,3 +1,23 @@
-INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (1,'Belfiore', 'michele@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (1,'Belfiore', 'fef@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (2,'Belfiore', 'dfedfd@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (3,'Belfiore', 'dd@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (4,'Belfiore', 'dsd@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (5,'Belfiore', 'dds@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (6,'Belfiore', 'e@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (7,'Belfiore', 'tfffff@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (8,'Belfiore', 'h@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (9,'Belfiore', 'b@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (10,'Belfiore', 'x@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (11,'Belfiore', 's@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (12,'Belfiore', 'wq@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (13,'Belfiore', 'q@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (14,'Belfiore', 'r@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (15,'Belfiore', 't@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (16,'Belfiore', 'gf@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (17,'Belfiore', 'd@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (18,'Belfiore', 'ddss@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (19,'Belfiore', 'dcj@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (20,'Belfiore', 'jj@test.it', 'Michele', null);
+INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (21,'Belfiore', 'jjjj@test.it', 'Michele', null);
 
 --select sysdate from dual;

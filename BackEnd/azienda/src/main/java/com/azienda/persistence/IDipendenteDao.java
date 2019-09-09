@@ -11,7 +11,6 @@ public interface IDipendenteDao {
 	public void save(Dipendente dipendente);
 	
 	public Optional<List<Dipendente>> findAll();
-	
-	
-	
+
+	public Optional<List<Dipendente>> findAllByPage(int pageNumber);
 }

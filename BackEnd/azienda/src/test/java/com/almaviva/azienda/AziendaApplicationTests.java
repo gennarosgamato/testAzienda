@@ -45,7 +45,9 @@ public class AziendaApplicationTests {
 	
 	@Test
 	public void testEmployee() throws Exception {
-		mockMvc.perform(post("/saveDipendente")).andExpect(status().isOk());
+
+		mockMvc.perform(post("/saveDipendente").content("")).andExpect(status().isOk());
+
 
 	}
 
