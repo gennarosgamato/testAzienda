@@ -5,11 +5,11 @@ import java.util.Optional;
 
 import com.azienda.model.Dipendente;
 
-
 public interface IDipendenteService {
 
-   public Optional<List<Dipendente>> findAll();
-   
+	public Optional<List<Dipendente>> findAll();
 
 	public void save(Dipendente dipendente);
+	
+	public Optional<List<Dipendente>> findAllByPage(int pageNumber);
 }

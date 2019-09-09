@@ -1,9 +1,13 @@
 package com.azienda.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.azienda.model.Dipendente;
 import com.azienda.service.IDipendenteService;
@@ -15,7 +19,10 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletResponse;
 
 
 
@@ -59,15 +66,32 @@ public class DipendenteContoller {
     	
     }
     
-    @PostMapping(value = "/addDip")
-    public void addDip(){
-    	Dipendente d= new Dipendente();
-    	d.setNome("Michele");
-    	d.setCognome("Belfiore");
-    	d.setAzienda(null);
-    	d.setEmail("michele@email.it");
-   }
-
+    /* private ApplicationEventPublisher eventPublisher;
+    @GetMapping(value = "/findAllCriteria/{page}/{size}")
+    public Optional<List<Dipendente>> findPaginated(@PathVariable("page") int page, 
+      @PathVariable("size") int size, UriComponentsBuilder uriBuilder,
+      HttpServletResponse response) {
+        Page<Dipendente> resultPage = service.findPaginated(page, size);
+        if (page > resultPage.getTotalPages()) {
+            throw new MyResourceNotFoundException();
+        }
+        eventPublisher.publishEvent(new ApplicationEvent() {
+		});
+     
+        return resultPage.getContent();
+    }*/
+    
+    @GetMapping("/findByPage/{page}")
+    public ResponseEntity<?> findCriteria(@PathVariable("page") int pageNumber){
+        try{
+            return buildResponse(dipendenteService.findAllByPage(pageNumber));
+        }catch (Exception e){
+            //LOG!
+        	e.printStackTrace();
+            return buildErrorResponse("ERR-02", "Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
+        }
+    }
+    
     private ErrorResponse buildErrorResponse(String codice, String messaggio) {
         ErrorResponse errorResponse = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR);
         errorResponse.setCode(codice);

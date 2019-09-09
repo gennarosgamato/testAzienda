@@ -29,6 +29,11 @@ public class DipendenteService implements IDipendenteService {
 	public void save(Dipendente dipendente) {
 		dipRepository.save(dipendente);
 	}
+	
+	@Transactional
+	public Optional<List<Dipendente>> findAllByPage(int pageNumber){
+		return dipRepository.findAllByPage(pageNumber);
+	}
 
 
 
