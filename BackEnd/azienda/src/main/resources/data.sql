@@ -42,4 +42,6 @@ INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (41,'Sgamat
 INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (42,'Sgamato', 'jj@test.it', 'Gennaro', null);
 INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (43,'Belfiore', 'jjjj@test.it', 'Michele', null);
 
+INSERT INTO user_details (id,username, password) VALUES (1,'root', 'root');
+
 --select sysdate from dual;

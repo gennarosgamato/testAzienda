@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.azienda.model.Dipendente;
 import com.azienda.service.IDipendenteService;
+import com.azienda.service.request.DipendenteRequest;
 import com.azienda.service.response.ErrorResponse;
 
 @RestController
