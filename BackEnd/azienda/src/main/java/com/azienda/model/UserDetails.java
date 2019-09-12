@@ -1,9 +1,13 @@
 package com.azienda.model;
 
+import java.util.Optional;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
@@ -17,17 +21,21 @@ public class UserDetails {
 	private String username;
 	private String password;
 	
+	@OneToOne
+	private Dipendente dipendente;
+	
 	
 	/**
 	 * @param id
 	 * @param username
 	 * @param password
 	 */
-	public UserDetails(int id, String username, String password) {
+	public UserDetails(int id, String username, String password, Dipendente dipendente) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.dipendente=dipendente;
 	}
 	/**
 	 * 
@@ -72,5 +80,19 @@ public class UserDetails {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	/**
+	 * @return the dipendente
+	 */
+	public Dipendente getDipendente() {
+		return dipendente;
+	}
+	/**
+	 * @param dipendente the dipendente to set
+	 */
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
+	}
+	
+	
 	
 }

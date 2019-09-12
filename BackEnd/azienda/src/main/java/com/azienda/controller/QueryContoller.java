@@ -1,8 +1,8 @@
 package com.azienda.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +13,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.azienda.model.Dipendente;
+import com.azienda.model.UserDetails;
+import com.azienda.security.constants.SecurityConstants;
 import com.azienda.service.IDipendenteService;
-import com.azienda.service.request.DipendenteRequest;
+import com.azienda.service.IUserDetailsService;
+import com.azienda.service.dto.UserDetailsDTO;
+import com.azienda.service.request.UserDetailsRequest;
 import com.azienda.service.response.ErrorResponse;
+
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 @RestController
 public class QueryContoller {
 
 	@Autowired
 	private IDipendenteService dipendenteService;
+	
+	@Autowired
+	private IUserDetailsService userService;
 
-	static final Logger LOGGER = LogManager.getLogger(QueryContoller.class.getName());
+	private static final Logger LOGGER = LogManager.getLogger(QueryContoller.class.getName());
 
 	@RequestMapping(value = "/dipendenti", method = RequestMethod.GET)
 	public ResponseEntity<?> ricercaTuttiIDipendenti() {
@@ -40,6 +50,43 @@ public class QueryContoller {
 		}
 	}
 
+	//da ottimizzare
+	
+	@RequestMapping(value = "/login",  method = RequestMethod.GET)
+	public String login(@RequestBody UserDetailsRequest req){
+		
+		   UserDetailsDTO userDTO= req.getUserDTO();
+		   
+		   Optional<UserDetails> user = userService.login(userDTO.getUsername(),userDTO.getPassword());
+		   
+		try {
+			if (user.get().getUsername()!=null && user.get().getPassword()!=null) {
+				
+				byte[] signingKey = SecurityConstants.JWT_SECRET.getBytes();
+				
+				String token = Jwts.builder()
+		                .signWith(SignatureAlgorithm.HS512, signingKey)
+		                .setHeaderParam("typ", SecurityConstants.TOKEN_TYPE)
+		                .setIssuer(SecurityConstants.TOKEN_ISSUER)
+		                .setAudience(SecurityConstants.TOKEN_AUDIENCE)
+		                .setSubject(userDTO.getUsername()).setSubject(userDTO.getPassword())
+		                .setExpiration(new Date(System.currentTimeMillis() + 864000000))
+		                .compact();
+				return token;
+				
+			}
+		}
+		catch (Exception e) {
+               
+			   if(user.get().getUsername()==null ||user.get().getPassword()==null){
+				return "Credenziali di accesso non valide";
+			}
+			return "ERR-02" + "Errore durante il login: " +e.getStackTrace();
+		}
+		return "";	
+	}
+	
+	
 	@RequestMapping(value = "/findCriteria/{page}", method = RequestMethod.GET)
     public ResponseEntity<?> findCriteria(@RequestBody Dipendente dipendente, @PathVariable("page") int pageNumber){
 		String criteria;

@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.azienda.model.Dipendente;
+import com.azienda.model.UserDetails;
 import com.azienda.service.IDipendenteService;
 import com.azienda.service.dto.DipendenteDTO;
+import com.azienda.service.dto.UserDetailsDTO;
 import com.azienda.service.request.DipendenteRequest;
+import com.azienda.service.request.UserDetailsRequest;
 import com.azienda.service.response.ErrorResponse;
 
 @RestController
@@ -38,6 +41,24 @@ public class CommandController {
     		buildErrorResponse("ERR", "Problemi di salvataggio di un Dipendente sul Database");
     	}
     }
+	
+	
+	@RequestMapping(value= "/addUtenza" , method = RequestMethod.POST)
+	public void addUtenza(@RequestBody UserDetailsRequest req) {
+		UserDetailsDTO userDto = req.getUserDTO();
+		UserDetails user = new UserDetails();
+		user.setUsername(userDto.getUsername());
+		user.setPassword(userDto.getPassword());
+		
+		try {
+		dipendenteService.addUtenza(user);
+		}
+		catch (Exception e) {
+    		buildErrorResponse("ERR", "Problemi di salvataggio di una utenza sul Database");
+    	}
+	}
+	
+	
 	
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void updateDipendente(@RequestBody DipendenteRequest request) {

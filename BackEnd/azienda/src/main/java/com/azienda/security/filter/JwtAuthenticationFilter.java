@@ -19,7 +19,6 @@ import com.azienda.security.constants.SecurityConstants;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 

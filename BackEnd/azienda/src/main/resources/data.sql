@@ -43,5 +43,6 @@ INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (42,'Sgamat
 INSERT INTO dipendente (id, cognome, email, nome, azienda_id) VALUES (43,'Belfiore', 'jjjj@test.it', 'Michele', null);
 
 INSERT INTO user_details (id,username, password) VALUES (1,'root', 'root');
+INSERT INTO user_details (id,username, password) VALUES (2,'admin', 'admin');
 
 --select sysdate from dual;

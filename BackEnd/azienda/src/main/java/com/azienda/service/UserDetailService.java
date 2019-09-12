@@ -1,18 +1,26 @@
 package com.azienda.service;
 
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.azienda.model.UserDetails;
-import com.azienda.query.IUserDetails;
+import com.azienda.query.IQuery;
 
-public class UserDetailService implements IUserDetails{
+@Service
+public class UserDetailService implements IUserDetailsService{
 
-	@Autowired
-	IUserDetails dipendenteService;
 	
-	@Override
-	public boolean login(UserDetails user) {
-		return dipendenteService.login(user);
+	@Autowired
+	private IQuery query;
+	
+	
+	@Transactional
+	public Optional<UserDetails> login (String username, String password){
+		return query.getUtenza(username, password);
 	}
 
 	
