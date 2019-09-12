@@ -1,1 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: transparent;
+    color: #000000;
+  }
+  
+  .active {
+    background-color: transparent;;
+    color: #000000;
+  }
+  
+  div.c{
+    float: inherit;
+    margin-top: 0px;
+  }
+  
+  div.d{ 
+    text-align: right;
+  }
+  
+  ul.c {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+    overflow: hidden;
+    background-color: transparent;
+    border-bottom: 2px solid #B7B7B7;
+    border-bottom-left-radius: 255px;
+    border-inline-end-style: inherit;
+    width: 90em;
+    height: 50px;
+
+  }
+  
+  li.c {
+    float: right;
+  }
+  
+  
+  li a.k{
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+   /* Style The Dropdown Button */
+   .dropbtn {
+    background-color: transparent;
+    color: solid #B7B7B7;
+    padding: 16px;
+    font-size: 16px;
+    float: left;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    float: right;
+    margin-top: 0px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: transparent;
+  }
+  
+  ul li.g{
+     margin:0 0px 0px 150px;
+     background-color: transparent;
+    }
+  
+    img {
+      color: #f2f2f2;
+    }
+
+    div.t{
+      background-color: #F2F2F2;
+      margin-top: 1em;
+      
+      height: 400px;
+    }
+    img.pageone {
+       display: block;
+       height: 20em;
+       margin-left: auto;
+       margin-right: auto;
+       margin-bottom: auto;
+    }

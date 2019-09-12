@@ -1,0 +1,40 @@
+<div class="container=">
+    <div class="card">
+        <div class="card-header">
+          <h6>All Fiscal Code</h6>
+        </div>
+        <div class="card-body">
+         <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>City</th>
+            <th>Date of birth</th>
+            <th>Gender</th>
+            <th>C. Fiscale</th>
+            <th>Gestisci</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ps of users ">
+            <td>{{ps.name}}</td>
+            <td>{{ps.lastname}}</td>
+            <td>{{ps.city}}</td>
+            <td>{{ps.date}}</td>
+            <td>{{ps.gender}}</td>
+            <td>{{ps.codFiscale}}</td>
+            <td>
+            <button (click)="Edit(ps.idp)" class="btn btn-info" style="margin-right: 10px">Edit </button>
+            <button (click)="Delete(ps)" class="btn btn-danger">Delete</button>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+
+  
+
+
