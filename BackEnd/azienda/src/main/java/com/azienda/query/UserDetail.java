@@ -9,7 +9,7 @@ import com.azienda.model.UserDetails;
 public class UserDetail implements IUserDetails{
 
 	@Autowired
-	EntityManager entityManager;
+	private EntityManager entityManager;
 	
 	@Override
 	public boolean login(UserDetails user) {

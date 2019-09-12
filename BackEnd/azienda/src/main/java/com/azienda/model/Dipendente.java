@@ -2,6 +2,7 @@ package com.azienda.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,7 @@ public class Dipendente implements Serializable {
     private  int id;
     private  String nome;
     private  String cognome;
+    
 
     @Email
     @Column(unique = false)
@@ -33,6 +35,10 @@ public class Dipendente implements Serializable {
 
     @OneToOne
     private Azienda azienda;
+    
+
+	@OneToOne
+	private UserDetails user;
 
 	/**
 	 * @return the id
@@ -104,5 +110,18 @@ public class Dipendente implements Serializable {
 		this.azienda = azienda;
 	}
 
-    
+	/**
+	 * @return the user
+	 */
+	public UserDetails getUser() {
+		return user;
+	}
+
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(UserDetails user) {
+		this.user = user;
+	}
+
 }

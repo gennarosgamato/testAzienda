@@ -3,7 +3,6 @@ package com.azienda.security.configuration;
 import com.azienda.security.filter.JwtAuthenticationFilter;
 import com.azienda.security.filter.JwtAuthorizationFilter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -28,6 +27,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .csrf().disable()
             .authorizeRequests()
             .antMatchers("/api/public").permitAll()
+            .antMatchers("/swagger-ui.html").permitAll()
+            .antMatchers("/login").permitAll()
             .anyRequest().authenticated()
             .and().formLogin().loginPage("/login")
             .and()

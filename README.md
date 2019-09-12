@@ -1,30 +1,17 @@
-# testAzienda
+# Frontend
 
 
-Esercizio
+# Backend
 
-#Primo esercizio di conflitti tra file
-Ciao michele, ti scrivo per augurarti una buona fortuna.
+Deploy su wildfly
 
+Postman: 
 
-#test1
-#Sto cercando di fare merge
-
-
-#test2
-#modifico nuovamente il file
-
-#test3
-#nuova modifica del file
-
-
-#test4
-#provo il merge
-#ciao
-
-#test5
-#ulteriore modifica del file
-
-#Test6
-
-#Test7 
+	> URL: http://localhost:8080/azienda-ms-0.0.1/login
+	> BODY: {
+	"userDTO": {
+		"idUser": 1, 
+		"username": "root",
+		"password": "root"
+	}
+}

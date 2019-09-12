@@ -1,4 +1,4 @@
-package com.azienda.query;
+ package com.azienda.query;
 
 import com.azienda.model.UserDetails;
 
