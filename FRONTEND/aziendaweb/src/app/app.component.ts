@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
   ch = new Array();
   private isButtonVisible = false;
 
+
   /**
    *Creates an instance of AppComponent.
    * @param {FormBuilder} formBuilder
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit {
     if (token!==null){
       this.isButtonVisible=true;
     }
+
     this.home = "HOME";
     this.iscrizione = "VISUALIZZA TUTTI I CODICI FISCALI";
     this.accedi = "ACCEDI";

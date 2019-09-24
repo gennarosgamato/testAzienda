@@ -1,4 +1,5 @@
 export class User {
+
     private id: number;
     private username: String;
     private password: String;
@@ -21,5 +22,5 @@ export class User {
     public set _id(value: number) {
         this.id = value;
     }
-    
+
 }

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable, config } from 'rxjs';
-
-
 import { User } from 'src/app/User';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
@@ -25,6 +23,7 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
+
     login(user:User) {
       var u="{\"userDTO\":"+JSON.stringify(user)+"}";
       console.log(u);
@@ -37,6 +36,7 @@ export class AuthenticationService {
           this.http.post(link,undefined,httpOptions).subscribe((res: HttpResponse<any>) => {
             localStorage.setItem('token',res.headers.get('Authorization'));
             location.replace("/");
+
           })
     }
 

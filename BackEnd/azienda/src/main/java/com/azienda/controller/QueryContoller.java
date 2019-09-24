@@ -1,30 +1,43 @@
 package com.azienda.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.azienda.model.Dipendente;
+import com.azienda.model.UserDetails;
+import com.azienda.security.constants.SecurityConstants;
 import com.azienda.service.IDipendenteService;
+import com.azienda.service.IUserDetailsService;
+import com.azienda.service.dto.UserDetailsDTO;
+import com.azienda.service.request.UserDetailsRequest;
 import com.azienda.service.response.ErrorResponse;
 
+
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class QueryContoller {
 
 	@Autowired
 	private IDipendenteService dipendenteService;
+	
+	@Autowired
+	private IUserDetailsService userService;
 
-	static final Logger LOGGER = LogManager.getLogger(QueryContoller.class.getName());
+	private static final Logger LOGGER = LogManager.getLogger(QueryContoller.class.getName());
 
 	/**
 	 * Metodo di visualizzazione di una lista di Dipendenti
@@ -42,6 +55,7 @@ public class QueryContoller {
 					"Errore durante la visualizzazione della lista dei dipendenti: " + e.getMessage());
 		}
 	}
+
 
 	/**
 	 * Visualizzazione di una lista di Dipendenti organizzandoli in pagine

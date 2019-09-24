@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../Services/authentication.service';
 import {AlertService} from '../../Services/alert.service';
 import { HttpResponse } from '@angular/common/http';
+
 import { User } from 'src/app/User';
 
 ;
@@ -13,6 +14,7 @@ import { User } from 'src/app/User';
 @Component({templateUrl: 'login.component.html'})
 export class LoginComponent implements OnInit {
     user=User;
+
     loginForm: FormGroup;
     loading = false;
     submitted = false;
@@ -51,6 +53,7 @@ export class LoginComponent implements OnInit {
         if (this.loginForm.invalid) {
             return;
         }
+
         this.user.prototype._username=this.f.username.value;
         this.user.prototype._password=this.f.password.value;
         

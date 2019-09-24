@@ -97,6 +97,7 @@ ul li.g{
 
   }
 
+
     img {
       color: #f2f2f2;
     }
@@ -113,6 +114,7 @@ ul li.g{
        margin-left: auto;
        margin-right: auto;
        margin-bottom: auto;
+
     }
     input[type=text], select {
       width: 100%;

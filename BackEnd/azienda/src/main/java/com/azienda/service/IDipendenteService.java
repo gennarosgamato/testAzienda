@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.azienda.model.Dipendente;
+import com.azienda.model.UserDetails;
 
 public interface IDipendenteService {
 //Query
@@ -24,4 +25,6 @@ public interface IDipendenteService {
 	public void updateDipendente(Dipendente dipendente);
 	
 	public void removeDipendente(Dipendente dipendente);
+	
+	public void addUtenza(UserDetails u);
 }

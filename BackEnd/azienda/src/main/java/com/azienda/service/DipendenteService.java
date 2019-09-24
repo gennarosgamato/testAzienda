@@ -2,11 +2,11 @@ package com.azienda.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Service;
 
 import com.azienda.command.ICommand;
 import com.azienda.model.Dipendente;
+import com.azienda.model.UserDetails;
 import com.azienda.query.IPagination;
 import com.azienda.query.IQuery;
 
@@ -65,10 +65,9 @@ public class DipendenteService implements IDipendenteService {
 	public void removeDipendente(Dipendente dipendente) {
 		commandRepository.removeDipendente(dipendente);
 	}
-
 	
-
-   
-    
-
+	@Transactional
+	public void addUtenza(UserDetails u) {
+		commandRepository.addUtenza(u);
+	}
 }
