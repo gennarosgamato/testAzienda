@@ -26,6 +26,10 @@ public class QueryContoller {
 
 	static final Logger LOGGER = LogManager.getLogger(QueryContoller.class.getName());
 
+	/**
+	 * Metodo di visualizzazione di una lista di Dipendenti
+	 * @return
+	 */
 	@RequestMapping(value = "/dipendenti", method = RequestMethod.GET)
 	public ResponseEntity<?> ricercaTuttiIDipendenti() {
 		LOGGER.error("ERROR LOGGER TEST");
@@ -39,6 +43,12 @@ public class QueryContoller {
 		}
 	}
 
+	/**
+	 * Visualizzazione di una lista di Dipendenti organizzandoli in pagine
+	 * @param dipendente
+	 * @param pageNumber
+	 * @return
+	 */
 	@RequestMapping(value = "/findCriteria/{page}", method = RequestMethod.GET)
     public ResponseEntity<?> findCriteria(@RequestBody Dipendente dipendente, @PathVariable("page") int pageNumber){
 		String criteria;

@@ -1,0 +1,57 @@
+<div class="home">
+    <div class="row align-items-center">
+        <div id="cf-direct" class="col-12">
+            <form [formGroup]="form">
+
+                <h2>Calculate fiscal code </h2>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" formControlName="name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="form-control" id="lastname" formControlName="lastname" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" formControlName="city" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="date">Date of birth</label>
+                        <input type="t" class="form-control" id="date" formControlName="date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="gender">Gender</label>
+                        <select class="custom-select" name="gender" id="gender" formControlName="gender" required>
+                            <option selected value="M">Man</option>
+                            <option value="F">Woman</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <button (click)="calcolaCF()" class="btn btn-primary" style="margin-right: 10px">Calculate</button>
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                        <button (click)="Save(persona)" class="btn btn-info" style="margin-left: 10px">Save</button>
+                      
+                        <input type="text" [ngClass]="{'form-control': true, 'alert': true, 'alert-danger': (cfCheck === false || cfConnection === false)}" name="codicefiscale"
+                            id="codicefiscale" [formControl]="codFiscale" required>
+                       
+                        <label *ngIf="cfCheck === false">The tax codes do not match</label>
+                        <label *ngIf="cfConnection === false">Server connection error</label>
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </div>
+</div>
+

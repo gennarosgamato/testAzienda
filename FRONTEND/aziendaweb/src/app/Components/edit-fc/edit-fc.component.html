@@ -1,0 +1,60 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+                <h1>Edit user </h1>
+            </div>
+            <div class="card-body">
+            
+            <form [formGroup]="myGroup">
+
+                    <div class="form-group">
+                            <input class="form-control"  type="hidden"  id="idp" formControlName="idp"  required>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="Name">Nome</label>
+                        <input class="form-control"  type="text"  id="name" formControlName="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Lastname">Lastname</label>
+                        <input class="form-control"   type="text" id="lastname" formControlName="lastname" required>
+                    </div>
+                
+
+                    <div class="form-group">
+                            <label for="City">City</label>
+                            <input class="form-control"   type="text"  id="city" formControlName="city" required>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="date">Birthdate</label>
+                            <input class="form-control"   type="text"  id="date" formControlName="date" required>
+                    </div>
+                
+
+              
+                    <div class="form-group">
+                        <label for="gender">Sesso</label>
+                        <select class="custom-select" name="gender" id="gender" formControlName="gender" required>
+                            <option selected value="M">Maschio</option>
+                            <option value="F">Femmina</option>
+                        </select>
+                    </div>
+               
+                    <div class="form-group">
+                            <label for="gender">Codice fiscale</label>
+                            <input type="text" [ngClass]="{'form-control': true, 'alert': true, 'alert-danger': (cfCheck === false || cfConnection === false)}" name="codicefiscale"
+                            id="codicefiscale" [formControl]="codFiscale" disabled>
+                        <button (click)="calcolaCF()" class="btn btn-primary" style="margin-top: 10px">Calculate</button>
+
+                    </div>
+             </form>
+        </div>
+    </div>
+</div>
+    
+<div style="padding-top: 1px"></div>
+<div class="text-center" style="margin-top: 10px">
+<button (click)="Save(ps)" class="btn btn-info">Save</button>
+</div>

@@ -23,6 +23,11 @@ public class CommandController {
 	@Autowired
     private IDipendenteService dipendenteService;
 	
+	
+	/**
+	 * Metodo di registrazione di un Dipendente
+	 * @param request
+	 */
 	@RequestMapping(value = "/saveDipendente", method = RequestMethod.POST)
     public void saveDipendente(@RequestBody DipendenteRequest request) {
     	DipendenteDTO dto = request.getDto();
@@ -39,6 +44,10 @@ public class CommandController {
     	}
     }
 	
+	/**
+	 * Metodo di aggiornamento dell'anagrafica di un Dipendente
+	 * @param request
+	 */
 	@RequestMapping(value = "/update", method = RequestMethod.PUT)
 	public void updateDipendente(@RequestBody DipendenteRequest request) {
 		DipendenteDTO dto = request.getDto();
@@ -56,6 +65,10 @@ public class CommandController {
     	}
 	}
 	
+	/**
+	 * Metodo di rimozione di un Dipendente
+	 * @param request
+	 */
 	@RequestMapping(value = "/remove", method = RequestMethod.DELETE)
 	public void removeDipendente(@RequestBody DipendenteRequest request) {
 		DipendenteDTO dto = request.getDto();
